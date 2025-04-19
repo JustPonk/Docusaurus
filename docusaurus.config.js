@@ -12,13 +12,13 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'My Site',
   tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/minecraftDirt.jpg',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://965473571.facturalo.co',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/docusaurus/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -78,21 +78,28 @@ const config = {
       navbar: {
         title: 'My Site',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Minecraft Dirt Block',
+          src: 'img/minecraftDirt.jpg',
         },
         items: [
           {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Docs',
+            icon: '📚',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            to: '/blog',
+            label: 'Blog',
+            position: 'left',
+            icon: '📝',
+          },
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
             position: 'right',
+            icon: '🐙',
           },
         ],
       },
@@ -103,8 +110,9 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Documentation',
                 to: '/docs/intro',
+                icon: '📚',
               },
             ],
           },
@@ -114,14 +122,17 @@ const config = {
               {
                 label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                icon: '💬',
               },
               {
                 label: 'Discord',
                 href: 'https://discordapp.com/invite/docusaurus',
+                icon: '🎮',
               },
               {
                 label: 'X',
                 href: 'https://x.com/docusaurus',
+                icon: '𝕏',
               },
             ],
           },
@@ -131,10 +142,12 @@ const config = {
               {
                 label: 'Blog',
                 to: '/blog',
+                icon: '📝',
               },
               {
                 label: 'GitHub',
                 href: 'https://github.com/facebook/docusaurus',
+                icon: '🐙',
               },
             ],
           },

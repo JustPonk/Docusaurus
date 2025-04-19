@@ -1,30 +1,442 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Estilos personalizados para el sitio
  */
 
-/* You can override the default Infima variables here. */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Esquema de colores Twitch */
+  --ifm-color-primary: #9146FF;
+  --ifm-color-primary-dark: #772CE8;
+  --ifm-color-primary-darker: #5C16C5;
+  --ifm-color-primary-darkest: #4A148C;
+  --ifm-color-primary-light: #A970FF;
+  --ifm-color-primary-lighter: #BF94FF;
+  --ifm-color-primary-lightest: #D4B5FF;
+  
+  /* Colores secundarios Twitch */
+  --color-secondary: #00FF7F;
+  --color-accent: #FF0099;
+  --color-background: #0E0E10;
+  --color-text: #EFEFF1;
+  --color-surface: #18181B;
+  
+  /* Tipografía */
+  --ifm-font-family-base: Arial, sans-serif;
+  --ifm-heading-font-family: Arial, sans-serif;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.6;
+  
+  /* Espaciado */
+  --ifm-spacing-horizontal: 2rem;
+  --ifm-spacing-vertical: 2rem;
+  
+  /* Bordes y sombras */
+  --border-radius: 8px;
+  --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  
+  /* Transiciones */
+  --transition-speed: 0.3s;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+/* Modo oscuro (mantenemos el tema oscuro por defecto) */
+[data-theme='light'] {
+  --ifm-color-primary: #9146FF;
+  --ifm-color-primary-dark: #772CE8;
+  --ifm-color-primary-darker: #5C16C5;
+  --ifm-color-primary-darkest: #4A148C;
+  --ifm-color-primary-light: #A970FF;
+  --ifm-color-primary-lighter: #BF94FF;
+  --ifm-color-primary-lightest: #D4B5FF;
+  
+  --color-secondary: #00FF7F;
+  --color-accent: #FF0099;
+  --color-background: #EFEFF1;
+  --color-text: #0E0E10;
+  --color-surface: #FFFFFF;
+  
+  --ifm-background-color: var(--color-background);
+  --ifm-background-surface-color: var(--color-surface);
+}
+
+/* Estilos generales */
+body {
+  font-family: var(--ifm-font-family-base);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  letter-spacing: 0.3px;
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, var(--ifm-color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--color-secondary);
+  animation: fadeInLeft 0.8s ease-out;
+}
+
+h3 {
+  font-size: 1.75rem;
+  color: var(--ifm-color-primary);
+  animation: fadeInRight 0.8s ease-out;
+}
+
+/* Enlaces */
+a {
+  color: var(--ifm-color-primary-light);
+  text-decoration: none;
+  transition: all var(--transition-speed) ease;
+  position: relative;
+  font-weight: 500;
+}
+
+a:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--color-accent));
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform var(--transition-speed) ease;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(14, 14, 16, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(145, 70, 255, 0.1);
+  animation: slideDown 0.5s ease-out;
+}
+
+[data-theme='light'] .navbar {
+  background: rgba(239, 239, 241, 0.95);
+  border-bottom: 1px solid rgba(145, 70, 255, 0.1);
+}
+
+.navbar__title {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 800;
+  font-size: 1.5rem;
+  background: linear-gradient(45deg, var(--ifm-color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Sidebar */
+.menu__list {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.menu__list-item {
+  transition: all var(--transition-speed) ease;
+}
+
+.menu__list-item:hover {
+  transform: translateX(5px);
+  background: rgba(145, 70, 255, 0.1);
+}
+
+.menu__link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed) ease;
+}
+
+.menu__link:hover {
+  background: rgba(145, 70, 255, 0.1);
+  color: var(--ifm-color-primary);
+}
+
+.menu__link--active {
+  background: var(--ifm-color-primary);
+  color: white;
+  font-weight: bold;
+}
+
+/* Iconos para el menú lateral */
+.menu__list-item:nth-child(1) .menu__link::before {
+  content: '🚀';
+  margin-right: 0.5rem;
+}
+
+.menu__list-item:nth-child(1) .menu__list-item:nth-child(1) .menu__link::before {
+  content: '📝';
+  margin-right: 0.5rem;
+}
+
+.menu__list-item:nth-child(1) .menu__list-item:nth-child(2) .menu__link::before {
+  content: '⚙️';
+  margin-right: 0.5rem;
+}
+
+.menu__list-item:nth-child(2) .menu__link::before {
+  content: '✨';
+  margin-right: 0.5rem;
+}
+
+.menu__list-item:nth-child(2) .menu__list-item:nth-child(1) .menu__link::before {
+  content: '🔍';
+  margin-right: 0.5rem;
+}
+
+.menu__list-item:nth-child(2) .menu__list-item:nth-child(2) .menu__link::before {
+  content: '🎯';
+  margin-right: 0.5rem;
+}
+
+.menu__list-item:nth-child(3) .menu__link::before {
+  content: '🧠';
+  margin-right: 0.5rem;
+}
+
+.menu__list-item:nth-child(3) .menu__list-item:nth-child(1) .menu__link::before {
+  content: '🔧';
+  margin-right: 0.5rem;
+}
+
+.menu__list-item:nth-child(3) .menu__list-item:nth-child(2) .menu__link::before {
+  content: '🔨';
+  margin-right: 0.5rem;
+}
+
+/* Botones */
+.button {
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  transition: all var(--transition-speed) ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: var(--ifm-heading-font-family);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.button--primary {
+  background: linear-gradient(45deg, var(--ifm-color-primary), var(--color-accent));
+  border: none;
+  color: white;
+  box-shadow: 0 4px 15px rgba(145, 70, 255, 0.3);
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(145, 70, 255, 0.4);
+}
+
+/* Tarjetas */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: all var(--transition-speed) ease;
+  overflow: hidden;
+  border: 1px solid rgba(145, 70, 255, 0.1);
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(145, 70, 255, 0.2);
+  border-color: rgba(145, 70, 255, 0.3);
+}
+
+/* Bloques de código */
+pre {
+  background: var(--color-surface);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  border: 1px solid rgba(145, 70, 255, 0.1);
+  animation: fadeIn 0.5s ease-out;
+}
+
+code {
+  font-family: 'Consolas', monospace;
+  border-radius: 6px;
+  padding: 0.2em 0.4em;
+  font-size: 0.9em;
+  background: rgba(145, 70, 255, 0.1);
+  color: var(--ifm-color-primary-light);
+}
+
+/* Tablas */
+table {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--color-surface);
+  animation: fadeIn 0.5s ease-out;
+}
+
+th {
+  background: var(--ifm-color-primary);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1rem;
+  font-family: var(--ifm-heading-font-family);
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(145, 70, 255, 0.1);
+}
+
+/* Footer */
+.footer {
+  background: var(--color-surface);
+  padding: 4rem 0;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(145, 70, 255, 0.1);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.footer__title {
+  color: var(--ifm-color-primary);
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer__link-item {
+  color: var(--color-text);
+  transition: color var(--transition-speed) ease;
+  font-family: var(--ifm-font-family-base);
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary);
+  transform: translateX(5px);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 996px) {
+  :root {
+    --ifm-spacing-horizontal: 1rem;
+    --ifm-spacing-vertical: 1.5rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  .navbar {
+    padding: 0.5rem 0;
+  }
 }
