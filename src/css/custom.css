@@ -5,39 +5,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Esquema de colores Twitch */
-  --ifm-color-primary: #9146FF;
-  --ifm-color-primary-dark: #772CE8;
-  --ifm-color-primary-darker: #5C16C5;
-  --ifm-color-primary-darkest: #4A148C;
-  --ifm-color-primary-light: #A970FF;
-  --ifm-color-primary-lighter: #BF94FF;
-  --ifm-color-primary-lightest: #D4B5FF;
+  /* Paleta de colores Mario Bros */
+  --ifm-color-primary: #e52521; /* Rojo Mario */
+  --ifm-color-primary-dark: #ce211d;
+  --ifm-color-primary-darker: #b41d1a;
+  --ifm-color-primary-darkest: #991916;
+  --ifm-color-primary-light: #e83f3b;
+  --ifm-color-primary-lighter: #ea5855;
+  --ifm-color-primary-lightest: #ee7270;
   
-  /* Colores secundarios Twitch */
-  --color-secondary: #00FF7F;
-  --color-accent: #FF0099;
-  --color-background: #0E0E10;
-  --color-text: #EFEFF1;
-  --color-surface: #18181B;
+  /* Colores secundarios Mario Bros */
+  --color-secondary: #fbd000; /* Amarillo moneda */
+  --color-accent: #009900; /* Verde tubo */
+  --color-background: #5c94fc; /* Azul cielo Mario */
+  --color-text: #ffffff;
+  --color-surface: #000000;
   
   /* Tipografía */
-  --ifm-font-family-base: Arial, sans-serif;
-  --ifm-heading-font-family: Arial, sans-serif;
-  --ifm-font-size-base: 16px;
-  --ifm-line-height-base: 1.6;
+  --ifm-font-family-base: 'Press Start 2P', cursive;
+  --ifm-heading-font-family: 'Press Start 2P', cursive;
+  --ifm-font-size-base: 14px;
+  --ifm-line-height-base: 1.8;
   
   /* Espaciado */
   --ifm-spacing-horizontal: 2rem;
   --ifm-spacing-vertical: 2rem;
   
   /* Bordes y sombras */
-  --border-radius: 8px;
-  --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  --border-radius: 0px; /* Estilo pixelado */
+  --box-shadow: 4px 4px 0 #000000;
   
   /* Transiciones */
-  --transition-speed: 0.3s;
+  --transition-speed: 0.1s;
+  
+  /* Estilos para el sidebar */
+  --doc-sidebar-width: 300px;
+  --ifm-menu-link-padding-vertical: 0.5rem;
+  --ifm-menu-link-padding-horizontal: 0.75rem;
 }
+
+/* Importar fuente pixel art */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 /* Modo oscuro (mantenemos el tema oscuro por defecto) */
 [data-theme='light'] {
@@ -69,9 +77,9 @@ body {
 
 /* Encabezados */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--ifm-heading-font-family);
-  font-weight: 700;
-  color: var(--ifm-color-primary);
+  font-family: 'Press Start 2P', cursive;
+  color: #ffffff;
+  text-shadow: 4px 4px 0 #000000;
   margin-bottom: 1.5rem;
   letter-spacing: 0.5px;
 }
@@ -101,7 +109,7 @@ h3 {
 
 /* Enlaces */
 a {
-  color: var(--ifm-color-primary-light);
+  color: var(--color-secondary);
   text-decoration: none;
   transition: all var(--transition-speed) ease;
   position: relative;
@@ -109,9 +117,8 @@ a {
 }
 
 a:hover {
-  color: var(--ifm-color-primary);
+  color: #ffffff;
   text-decoration: none;
-  transform: translateY(-1px);
 }
 
 a::after {
@@ -134,12 +141,11 @@ a:hover::after {
 
 /* Navbar */
 .navbar {
-  background: rgba(14, 14, 16, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  background: var(--ifm-color-primary);
+  border-bottom: 4px solid #000000;
+  box-shadow: 0 4px 0 #7c0000;
+  height: auto;
   padding: 1rem 0;
-  border-bottom: 1px solid rgba(145, 70, 255, 0.1);
-  animation: slideDown 0.5s ease-out;
 }
 
 [data-theme='light'] .navbar {
@@ -159,12 +165,22 @@ a:hover::after {
 }
 
 /* Sidebar */
+.theme-doc-sidebar-container {
+  background: var(--color-secondary);
+  border-right: 4px solid #000000;
+  box-shadow: 4px 0 0 #997a00;
+}
+
 .menu__list {
   animation: fadeIn 0.5s ease-out;
+  padding-left: 0.5rem;
+  margin: 0;
 }
 
 .menu__list-item {
   transition: all var(--transition-speed) ease;
+  margin-bottom: 0.5rem;
+  margin: 0;
 }
 
 .menu__list-item:hover {
@@ -173,29 +189,54 @@ a:hover::after {
 }
 
 .menu__link {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  border: none;
   padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
   transition: all var(--transition-speed) ease;
+  color: #000000;
 }
 
 .menu__link:hover {
-  background: rgba(145, 70, 255, 0.1);
+  background-color: #ffffff;
   color: var(--ifm-color-primary);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 #000000;
 }
 
 .menu__link--active {
-  background: var(--ifm-color-primary);
-  color: white;
-  font-weight: bold;
+  background-color: var(--ifm-color-primary);
+  color: #ffffff;
+  box-shadow: 4px 4px 0 #000000;
 }
 
-/* Iconos para el menú lateral */
-.menu__list-item:nth-child(1) .menu__link::before {
-  content: '📚';
+.menu__link--sublist {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu__link--sublist:after {
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1.25rem 1.25rem;
+  transform: rotate(90deg);
+  transition: transform var(--ifm-transition-fast);
+}
+
+.menu__list-item--collapsed .menu__link--sublist:after {
+  transform: rotate(0);
+}
+
+.menu__list .menu__list {
+  margin-left: var(--ifm-menu-link-padding-horizontal);
+  padding-left: var(--ifm-menu-link-padding-horizontal);
+}
+
+/* Iconos del menú */
+.menu__link::before {
+  content: '🔶';
   margin-right: 0.5rem;
+}
+
+.menu__link--active::before {
+  content: '⭐';
 }
 
 /* Tutorial Basics */
@@ -242,43 +283,32 @@ a:hover::after {
 
 /* Botones */
 .button {
-  border-radius: var(--border-radius);
-  padding: 0.75rem 1.5rem;
-  font-weight: 500;
+  background: var(--color-secondary);
+  border: 4px solid #000000;
+  box-shadow: 4px 4px 0 #000000;
+  color: #000000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  padding: 1rem 2rem;
   transition: all var(--transition-speed) ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-family: var(--ifm-heading-font-family);
-  animation: fadeIn 0.5s ease-out;
 }
 
-.button--primary {
-  background: linear-gradient(45deg, var(--ifm-color-primary), var(--color-accent));
-  border: none;
-  color: white;
-  box-shadow: 0 4px 15px rgba(145, 70, 255, 0.3);
-}
-
-.button--primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(145, 70, 255, 0.4);
+.button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000000;
 }
 
 /* Tarjetas */
 .card {
-  background: var(--color-surface);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  background: #ffffff;
+  border: 4px solid #000000;
+  box-shadow: 8px 8px 0 #000000;
   transition: all var(--transition-speed) ease;
-  overflow: hidden;
-  border: 1px solid rgba(145, 70, 255, 0.1);
-  animation: fadeInUp 0.5s ease-out;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(145, 70, 255, 0.2);
-  border-color: rgba(145, 70, 255, 0.3);
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0 #000000;
 }
 
 /* Bloques de código */
@@ -329,11 +359,11 @@ td {
 
 /* Footer */
 .footer {
-  background: var(--color-surface);
+  background: var(--color-accent);
+  border-top: 4px solid #000000;
+  box-shadow: 0 -4px 0 #006600;
   padding: 4rem 0;
   margin-top: 4rem;
-  border-top: 1px solid rgba(145, 70, 255, 0.1);
-  animation: fadeIn 0.5s ease-out;
 }
 
 .footer__title {
@@ -424,6 +454,7 @@ td {
   :root {
     --ifm-spacing-horizontal: 1rem;
     --ifm-spacing-vertical: 1.5rem;
+    --ifm-font-size-base: 12px;
   }
   
   h1 {
@@ -440,5 +471,47 @@ td {
   
   .navbar {
     padding: 0.5rem 0;
+  }
+}
+
+/* Centrar los elementos de la barra de navegación */
+.navbar__items {
+  justify-content: center;
+}
+
+.navbar__brand {
+  margin-right: auto;
+  animation: bounce 2s infinite;
+}
+
+.navbar__items--right {
+  margin-left: auto;
+}
+
+/* Personalización de la página principal */
+.hero {
+  background: var(--color-background);
+  border-bottom: 4px solid #000000;
+  box-shadow: 0 4px 0 #3a5e9e;
+}
+
+.hero__title {
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-shadow: 4px 4px 0 #000000;
+}
+
+.hero__subtitle {
+  color: #ffffff;
+  text-shadow: 2px 2px 0 #000000;
+}
+
+/* Animaciones */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
   }
 }
