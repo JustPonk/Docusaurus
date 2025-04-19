@@ -87,19 +87,16 @@ const config = {
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: 'Docs',
-            icon: '📚',
           },
           {
             to: '/blog',
             label: 'Blog',
             position: 'left',
-            icon: '📝',
           },
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
             position: 'right',
-            icon: '🐙',
           },
         ],
       },
@@ -112,7 +109,6 @@ const config = {
               {
                 label: 'Documentation',
                 to: '/docs/intro',
-                icon: '📚',
               },
             ],
           },
@@ -122,17 +118,14 @@ const config = {
               {
                 label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-                icon: '💬',
               },
               {
                 label: 'Discord',
                 href: 'https://discordapp.com/invite/docusaurus',
-                icon: '🎮',
               },
               {
                 label: 'X',
                 href: 'https://x.com/docusaurus',
-                icon: '𝕏',
               },
             ],
           },
@@ -142,12 +135,10 @@ const config = {
               {
                 label: 'Blog',
                 to: '/blog',
-                icon: '📝',
               },
               {
                 label: 'GitHub',
                 href: 'https://github.com/facebook/docusaurus',
-                icon: '🐙',
               },
             ],
           },

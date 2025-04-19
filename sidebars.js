@@ -17,34 +17,33 @@
 const sidebars = {
   tutorialSidebar: [
     {
-      type: 'category',
+      type: 'doc',
+      id: 'intro',
       label: 'Getting Started',
-      items: [
-        {
-          type: 'doc',
-          id: 'intro',
-          label: 'Introduction',
-        },
-        {
-          type: 'doc',
-          id: 'installation',
-          label: 'Installation',
-        },
-      ],
     },
     {
       type: 'category',
-      label: 'Features',
+      label: 'Basics',
       items: [
         {
           type: 'doc',
-          id: 'feature1',
-          label: 'Feature 1',
+          id: 'tutorial-basics/create-a-page',
+          label: 'Create a Page',
         },
         {
           type: 'doc',
-          id: 'feature2',
-          label: 'Feature 2',
+          id: 'tutorial-basics/create-a-document',
+          label: 'Create a Document',
+        },
+        {
+          type: 'doc',
+          id: 'tutorial-basics/create-a-blog-post',
+          label: 'Create a Blog Post',
+        },
+        {
+          type: 'doc',
+          id: 'tutorial-basics/markdown-features',
+          label: 'Markdown Features',
         },
       ],
     },
@@ -54,15 +53,25 @@ const sidebars = {
       items: [
         {
           type: 'doc',
-          id: 'advanced1',
-          label: 'Advanced Topic 1',
+          id: 'tutorial-extras/manage-docs-versions',
+          label: 'Version Management',
         },
         {
           type: 'doc',
-          id: 'advanced2',
-          label: 'Advanced Topic 2',
+          id: 'tutorial-extras/translate-your-site',
+          label: 'Translation',
+        },
+        {
+          type: 'doc',
+          id: 'tutorial-basics/deploy-your-site',
+          label: 'Deployment',
         },
       ],
+    },
+    {
+      type: 'doc',
+      id: 'tutorial-basics/congratulations',
+      label: '🎉 Congratulations!',
     },
   ],
 };

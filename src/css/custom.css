@@ -194,47 +194,49 @@ a:hover::after {
 
 /* Iconos para el menú lateral */
 .menu__list-item:nth-child(1) .menu__link::before {
-  content: '🚀';
+  content: '📚';
   margin-right: 0.5rem;
 }
 
-.menu__list-item:nth-child(1) .menu__list-item:nth-child(1) .menu__link::before {
-  content: '📝';
-  margin-right: 0.5rem;
-}
-
-.menu__list-item:nth-child(1) .menu__list-item:nth-child(2) .menu__link::before {
-  content: '⚙️';
-  margin-right: 0.5rem;
-}
-
-.menu__list-item:nth-child(2) .menu__link::before {
-  content: '✨';
-  margin-right: 0.5rem;
-}
-
+/* Tutorial Basics */
 .menu__list-item:nth-child(2) .menu__list-item:nth-child(1) .menu__link::before {
-  content: '🔍';
+  content: '📄';
   margin-right: 0.5rem;
 }
 
 .menu__list-item:nth-child(2) .menu__list-item:nth-child(2) .menu__link::before {
-  content: '🎯';
+  content: '📑';
   margin-right: 0.5rem;
 }
 
-.menu__list-item:nth-child(3) .menu__link::before {
-  content: '🧠';
+.menu__list-item:nth-child(2) .menu__list-item:nth-child(3) .menu__link::before {
+  content: '✍️';
   margin-right: 0.5rem;
 }
 
+.menu__list-item:nth-child(2) .menu__list-item:nth-child(4) .menu__link::before {
+  content: '📝';
+  margin-right: 0.5rem;
+}
+
+.menu__list-item:nth-child(2) .menu__list-item:nth-child(5) .menu__link::before {
+  content: '🚀';
+  margin-right: 0.5rem;
+}
+
+.menu__list-item:nth-child(2) .menu__list-item:nth-child(6) .menu__link::before {
+  content: '🎉';
+  margin-right: 0.5rem;
+}
+
+/* Tutorial Extras */
 .menu__list-item:nth-child(3) .menu__list-item:nth-child(1) .menu__link::before {
-  content: '🔧';
+  content: '🔄';
   margin-right: 0.5rem;
 }
 
 .menu__list-item:nth-child(3) .menu__list-item:nth-child(2) .menu__link::before {
-  content: '🔨';
+  content: '🌐';
   margin-right: 0.5rem;
 }
 
