@@ -14,66 +14,85 @@
 
  @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
  */
-const sidebars = {
+module.exports = {
   tutorialSidebar: [
     {
       type: 'doc',
       id: 'intro',
-      label: 'Getting Started',
+      label: '🚀 Bienvenida'
     },
     {
       type: 'category',
-      label: 'Basics',
+      label: '🎓 Primeros Pasos',
       items: [
-        {
-          type: 'doc',
-          id: 'tutorial-basics/create-a-page',
-          label: 'Create a Page',
-        },
-        {
-          type: 'doc',
-          id: 'tutorial-basics/create-a-document',
-          label: 'Create a Document',
-        },
-        {
-          type: 'doc',
-          id: 'tutorial-basics/create-a-blog-post',
-          label: 'Create a Blog Post',
-        },
-        {
-          type: 'doc',
-          id: 'tutorial-basics/markdown-features',
-          label: 'Markdown Features',
-        },
-      ],
+        'getting-started/instalacion',
+        'getting-started/primeros-pasos',
+        'getting-started/interfaz-basica',
+        'getting-started/atajos-teclado'
+      ]
     },
     {
       type: 'category',
-      label: 'Advanced',
+      label: '🔧 Herramientas DevTools',
       items: [
-        {
-          type: 'doc',
-          id: 'tutorial-extras/manage-docs-versions',
-          label: 'Version Management',
-        },
-        {
-          type: 'doc',
-          id: 'tutorial-extras/translate-your-site',
-          label: 'Translation',
-        },
-        {
-          type: 'doc',
-          id: 'tutorial-basics/deploy-your-site',
-          label: 'Deployment',
-        },
-      ],
+        'devtools/intro',
+        'devtools/elements',
+        'devtools/styles',
+        'devtools/console',
+        'devtools/sources',
+        'devtools/network'
+      ]
     },
     {
-      type: 'doc',
-      id: 'tutorial-basics/congratulations',
-      label: '🎉 Congratulations!',
+      type: 'category',
+      label: '💡 Conceptos Básicos',
+      items: [
+        'basic/elementos-dom',
+        'basic/debugging',
+        'basic/devices'
+      ]
     },
-  ],
+    {
+      type: 'category',
+      label: '🎮 Tutoriales',
+      items: [
+        {
+          type: 'category',
+          label: '🌟 Tutorial Básico',
+          items: [
+            'tutorial-basics/create-a-page',
+            'tutorial-basics/create-a-document',
+            'tutorial-basics/create-a-blog-post',
+            'tutorial-basics/markdown-features',
+            'tutorial-basics/deploy-your-site',
+            'tutorial-basics/congratulations'
+          ]
+        },
+        {
+          type: 'category',
+          label: '⭐ Tutorial Extra',
+          items: [
+            'tutorial-extras/manage-docs-versions',
+            'tutorial-extras/translate-your-site'
+          ]
+        }
+      ]
+    },
+    {
+      type: 'category',
+      label: '🚀 Características',
+      items: [
+        'feature1',
+        'feature2'
+      ]
+    },
+    {
+      type: 'category',
+      label: '🏆 Nivel Avanzado',
+      items: [
+        'advanced1',
+        'advanced2'
+      ]
+    }
+  ]
 };
-
-module.exports = sidebars;
